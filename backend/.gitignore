@@ -1,0 +1,6 @@
+node_modules
+frontend/node_modules
+backend/node_modules
+user-react/node_modules
+admin-react/node_modules
+.env
