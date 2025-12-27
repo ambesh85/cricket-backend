@@ -10,9 +10,10 @@ const axios = require("axios");
 
 /* ================== CONFIG ================== */
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-const JWT_SECRET = "ADMIN_SECRET_123";
+const JWT_SECRET = process.env.JWT_SECRET;
+
 const CRIC_API_KEY = "f46e8885-b9ee-4de3-b383-73b0645de92d";
 
 // Toggle when you add paid odds (Betfair later)
@@ -24,9 +25,8 @@ app.use(express.json());
 
 /* ================== MONGODB ================== */
 mongoose
-  .connect(
-    "mongodb+srv://ambesh139:Vidya%40139140@cluster0.hwfuocw.mongodb.net/ambesh139"
-  )
+  .connect(process.env.MONGO_URI)
+
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((err) => console.log("❌ Mongo Error:", err));
 
